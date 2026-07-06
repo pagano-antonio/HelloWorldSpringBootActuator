@@ -18,10 +18,15 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run SpringSentinel
-        run: |
-          mvn -B io.github.pagano-antonio:spring-sentinel-maven-plugin:audit
-
+        uses: pagano-antonio/springsentinel-action@main
+          
       - name: Upload SARIF
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: target/spring-sentinel-reports/report.sarif
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: spring-sentinel-report
+          path: target/spring-sentinel-reports/
