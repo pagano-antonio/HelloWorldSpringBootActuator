@@ -35,6 +35,8 @@ jobs:
 
       - name: Publish PR comment
         if: github.event_name == 'pull_request'
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          path: target/spring-sentinel-reports/comment.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --body-file target/spring-sentinel-reports/comment.md
