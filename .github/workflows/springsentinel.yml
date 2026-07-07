@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run SpringSentinel
-        uses: pagano-antonio/springsentinel-action@main
+        uses: pagano-antonio/springsentinel-action@v1.0.1
           
       - name: Upload SARIF
         uses: github/codeql-action/upload-sarif@v3
