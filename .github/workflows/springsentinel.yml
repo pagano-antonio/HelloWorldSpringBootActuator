@@ -25,7 +25,7 @@ jobs:
         with:
           sarif_file: target/spring-sentinel-reports/report.sarif
 
-      - name: Upload HTML Report
+      - name: Upload SpringSentinel Reports
         uses: actions/upload-artifact@v4
         with:
           name: spring-sentinel-report
